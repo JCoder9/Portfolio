@@ -34,8 +34,8 @@
                 [class.active]="selectedImage === image"
                 (click)="selectImage(image)"
               >
-                <img [src]="image" [alt]="project.title + ' ' + (i + 1)" class="thumb-image" (click)="openPopup(image); $event.stopPropagation()" />
-                <div *ngIf="isVideo(image)" class="video-overlay" (click)="openPopup(image); $event.stopPropagation()">▶</div>
+                <img [src]="image" [alt]="project.title + ' ' + (i + 1)" class="thumb-image" />
+                <div *ngIf="isVideo(image)" class="video-overlay">▶</div>
               </div>
             </div>
             <button 
