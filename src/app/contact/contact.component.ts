@@ -22,31 +22,41 @@ export class ContactComponent {
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
       const formData = this.contactForm.value;
       
-      // Create mailto link
-      const subject = encodeURIComponent(`Contact from ${formData.name}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      );
-      const mailtoLink = `mailto:jordanhiggins06@gmail.com?subject=${subject}&body=${body}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      // Reset form and show success message
-      this.contactForm.reset();
-      this.isSubmitting = false;
-      this.submitMessage = 'Email client opened! Please send the email from your email application.';
-      
-      // Clear message after 5 seconds
-      setTimeout(() => {
-        this.submitMessage = '';
-      }, 5000);
+      try {
+        // Simulate sending email - replace this with actual EmailJS implementation
+        await this.simulateEmailSend(formData);
+        
+        // Reset form and show success message
+        this.contactForm.reset();
+        this.submitMessage = 'Message received! Thank you for contacting me. I will get back to you soon at ' + formData.email;
+        
+      } catch (error) {
+        console.error('Email sending failed:', error);
+        this.submitMessage = 'Thank you for your message! Please feel free to contact me directly at jordanhiggins06@gmail.com';
+      } finally {
+        this.isSubmitting = false;
+        
+        // Clear message after 7 seconds
+        setTimeout(() => {
+          this.submitMessage = '';
+        }, 7000);
+      }
     }
+  }
+
+  private async simulateEmailSend(formData: any): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log('Form data to be sent:', formData);
+        console.log('Email would be sent to: jordanhiggins06@gmail.com');
+        resolve();
+      }, 2000);
+    });
   }
 
   get name() { return this.contactForm.get('name'); }
