@@ -1,0 +1,57 @@
+<div class="app-container">
+  <nav class="sidebar">
+    <div class="logo">
+      <a routerLink="/">Jordan Higgins</a>
+      <span class="title">Software Engineer</span>
+    </div>
+    <ul class="nav-links">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <span class="nav-dashes">-<span class="hidden-dashes">--</span></span>
+        <span class="nav-text">
+          <span class="letter" style="--i: 0">H</span>
+          <span class="letter" style="--i: 1">o</span>
+          <span class="letter" style="--i: 2">m</span>
+          <span class="letter" style="--i: 3">e</span>
+        </span>
+      </a></li>
+      <li><a routerLink="/projects" routerLinkActive="active">
+        <span class="nav-dashes">-<span class="hidden-dashes">--</span></span>
+        <span class="nav-text">
+          <span class="letter" style="--i: 0">P</span>
+          <span class="letter" style="--i: 1">r</span>
+          <span class="letter" style="--i: 2">o</span>
+          <span class="letter" style="--i: 3">j</span>
+          <span class="letter" style="--i: 4">e</span>
+          <span class="letter" style="--i: 5">c</span>
+          <span class="letter" style="--i: 6">t</span>
+          <span class="letter" style="--i: 7">s</span>
+        </span>
+      </a></li>
+      <li><a routerLink="/info" routerLinkActive="active">
+        <span class="nav-dashes">-<span class="hidden-dashes">--</span></span>
+        <span class="nav-text">
+          <span class="letter" style="--i: 0">I</span>
+          <span class="letter" style="--i: 1">n</span>
+          <span class="letter" style="--i: 2">f</span>
+          <span class="letter" style="--i: 3">o</span>
+        </span>
+      </a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">
+        <span class="nav-dashes">-<span class="hidden-dashes">--</span></span>
+        <span class="nav-text">
+          <span class="letter" style="--i: 0">C</span>
+          <span class="letter" style="--i: 1">o</span>
+          <span class="letter" style="--i: 2">n</span>
+          <span class="letter" style="--i: 3">t</span>
+          <span class="letter" style="--i: 4">a</span>
+          <span class="letter" style="--i: 5">c</span>
+          <span class="letter" style="--i: 6">t</span>
+        </span>
+      </a></li>
+    </ul>
+  </nav>
+
+  <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>

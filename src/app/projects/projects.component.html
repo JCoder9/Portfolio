@@ -1,0 +1,52 @@
+<div class="projects-section">
+  <h1>Projects</h1>
+  <p class="section-intro">Explore some of my recent work and projects.</p>
+  
+  <!-- Category Filter -->
+  <div class="category-filters">
+    <button 
+      *ngFor="let category of categories" 
+      [class.active]="selectedCategory.name === category.name"
+      (click)="filterByCategory(category)"
+      class="category-button"
+    >
+      <img [src]="category.icon" [alt]="category.name" class="category-icon">
+      <span>{{ category.name }}</span>
+    </button>
+  </div>
+  
+  <div class="projects-grid">
+    <div *ngFor="let project of projects" class="project-card">
+      <div class="project-image">
+        <img 
+          *ngIf="project.images && project.images.length > 0; else placeholderIcon"
+          [src]="project.images[0]" 
+          [alt]="project.title"
+          class="project-thumbnail"
+        />
+        <ng-template #placeholderIcon>
+          <div class="placeholder-image">📁</div>
+        </ng-template>
+      </div>
+      <div class="project-content">
+        <h3>{{ project.title }}</h3>
+        <p class="project-description">{{ project.overview | slice:0:150 }}{{ project.overview.length > 150 ? '...' : '' }}</p>
+        <div class="project-category" *ngIf="project.category">
+          <span class="category-badge">{{ project.category.name }}</span>
+        </div>
+        <div class="project-links">
+          <a [routerLink]="['/projects', project.id]" class="project-link">View Details</a>
+          <a 
+            *ngIf="project.link" 
+            [href]="project.link" 
+            class="project-link"
+            target="_blank"
+            rel="noopener"
+          >
+            External Link
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
