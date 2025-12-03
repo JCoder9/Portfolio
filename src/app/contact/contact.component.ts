@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs.config';
 
 @Component({
   selector: 'app-contact',
@@ -28,16 +30,16 @@ export class ContactComponent {
       const formData = this.contactForm.value;
       
       try {
-        // Simulate sending email - replace this with actual EmailJS implementation
-        await this.simulateEmailSend(formData);
+        // Send email using EmailJS
+        await this.sendEmail(formData);
         
         // Reset form and show success message
         this.contactForm.reset();
-        this.submitMessage = 'Message received! Thank you for contacting me. I will get back to you soon at ' + formData.email;
+        this.submitMessage = 'Message sent successfully! Thank you for contacting me. I will get back to you soon at ' + formData.email;
         
       } catch (error) {
         console.error('Email sending failed:', error);
-        this.submitMessage = 'Thank you for your message! Please feel free to contact me directly at jordanhiggins06@gmail.com';
+        this.submitMessage = 'Sorry, there was an error sending your message. Please email me directly at jordanhiggins06@gmail.com';
       } finally {
         this.isSubmitting = false;
         
@@ -49,14 +51,29 @@ export class ContactComponent {
     }
   }
 
-  private async simulateEmailSend(formData: any): Promise<void> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log('Form data to be sent:', formData);
-        console.log('Email would be sent to: jordanhiggins06@gmail.com');
-        resolve();
-      }, 2000);
-    });
+  private async sendEmail(formData: any): Promise<void> {
+    // Check if EmailJS is configured
+    if (EMAILJS_CONFIG.SERVICE_ID.includes('YOUR_') || 
+        EMAILJS_CONFIG.TEMPLATE_ID.includes('YOUR_') || 
+        EMAILJS_CONFIG.PUBLIC_KEY.includes('YOUR_')) {
+      throw new Error('EmailJS not configured. Please update emailjs.config.ts with your credentials.');
+    }
+
+    // Prepare template parameters
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_email: 'jordanhiggins06@gmail.com'
+    };
+
+    // Send email using EmailJS
+    await emailjs.send(
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.TEMPLATE_ID,
+      templateParams,
+      EMAILJS_CONFIG.PUBLIC_KEY
+    );
   }
 
   get name() { return this.contactForm.get('name'); }
