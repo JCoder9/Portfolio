@@ -11,6 +11,7 @@ export interface Phase {
 
 export interface Project {
   id: number;
+  slug: string;
   title: string;
   category?: Category;
   overview: string;
