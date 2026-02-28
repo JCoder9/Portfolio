@@ -13,7 +13,6 @@ import { projectData } from '../data/project-data';
 })
 export class ProjectDetailComponent implements OnInit {
   project: Project | null = null;
-  projectId: number = 0;
   selectedImage: string = '';
   scrollPosition: number = 0;
   thumbnailWidth: number = 120; // thumbnail width + margin
@@ -30,8 +29,8 @@ export class ProjectDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.projectId = +params['projectid']; // Convert to number
-      this.project = projectData.find(p => p.id === this.projectId) || null;
+      const slug = params['slug'];
+      this.project = projectData.find(p => p.slug === slug) || null;
       
       if (!this.project) {
         this.router.navigate(['/projects']);

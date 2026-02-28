@@ -49,7 +49,7 @@
           <span class="category-badge">{{ project.category.name }}</span>
         </div>
         <div class="project-links">
-          <a [routerLink]="['/projects', project.id]" class="project-link">View Details</a>
+          <a [routerLink]="['/projects', project.slug]" class="project-link">View Details</a>
           <a 
             *ngIf="project.link" 
             [href]="project.link" 

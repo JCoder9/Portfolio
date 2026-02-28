@@ -4,10 +4,105 @@ import { CATEGORIES } from './category-data';
 export const projectData: Project[] = [
   {
     id: 1,
+    slug: 'all-angles-news',
+    title: 'All Angles News',
+    category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
+    overview: `All Angles News is a sophisticated news aggregation platform designed to combat media bias and echo chambers by presenting the same stories from multiple political perspectives (left, center, right). The platform features real-time news feeds from diverse sources, comprehensive topic extraction using AI and structured data parsing, and innovative perspective comparison tools that help users understand how different outlets cover the same events.`,
+    goals: [
+      'Create a bias-aware news platform that promotes media literacy.',
+      'Implement comprehensive topic extraction from multiple data sources (JSON-LD, Open Graph, meta tags).',
+      'Develop real-time RSS aggregation with political bias classification.',
+      'Build a scalable serverless architecture with Firebase Functions.',
+      'Showcase advanced full-stack development and news API integration skills.',
+    ],
+    images: [
+      'assets/AllAnglesNews/homepage_live_feed.jpg',
+      'assets/AllAnglesNews/perspective_comparison.jpg',
+      'assets/AllAnglesNews/deep_dive_timeline.jpg',
+      'assets/AllAnglesNews/sketchy_news.jpg',
+    ],
+    phases: [
+      {
+        name: 'Phase 1: Architecture and Planning',
+        tasks: [
+          'Technical Architecture: Design serverless architecture using Next.js, Firebase Functions, and Python pipeline.',
+          'News Source Research: Identify reliable RSS feeds across political spectrum (NPR, BBC, Breitbart, etc.).',
+          'Database Schema: Design Prisma schema for articles, topics, and source metadata with proper indexing.',
+          'UI/UX Design: Create responsive design system with dark/light themes and mobile-first approach.',
+        ],
+      },
+      {
+        name: 'Phase 2: Data Pipeline Development',
+        tasks: [
+          'RSS Aggregation: Build Python pipeline using feedparser for reliable RSS feed processing.',
+          'Topic Extraction System: Implement 4-tier extraction (JSON-LD → Open Graph → Meta Keywords → Headline Analysis).',
+          'Political Bias Classification: Develop domain-based bias classification system for news sources.',
+          'Error Handling: Add comprehensive timeout, retry, and fallback mechanisms for unreliable feeds.',
+        ],
+      },
+      {
+        name: 'Phase 3: Frontend Development',
+        tasks: [
+          'Core Components: Build reusable React components for article cards, navigation, and filtering.',
+          'Page Architecture: Develop News Feed, All Angles (perspective comparison), and Deep Dive (timeline) pages.',
+          'State Management: Implement article caching and cross-page data consistency.',
+          'TypeScript Integration: Add comprehensive type safety for all news data structures.',
+        ],
+      },
+      {
+        name: 'Phase 4: Advanced Features',
+        tasks: [
+          'Perspective Comparison: Group articles by story and display different political viewpoints side-by-side.',
+          'Timeline View: Create chronological story development tracking in Deep Dive section.',
+          'Topic Filtering: Build dynamic filtering system with real-time topic extraction.',
+          'Search and Discovery: Implement article search with topic-based recommendations.',
+        ],
+      },
+      {
+        name: 'Phase 5: API Development',
+        tasks: [
+          'REST API Design: Create comprehensive news API endpoints with filtering and pagination.',
+          'Firebase Functions: Deploy serverless API with proper CORS and error handling.',
+          'Caching Strategy: Implement efficient data caching to reduce API calls and improve performance.',
+          'Rate Limiting: Add protection against abuse while maintaining user experience.',
+        ],
+      },
+      {
+        name: 'Phase 6: Production Optimization',
+        tasks: [
+          'Performance Testing: Optimize bundle size, implement lazy loading, and improve Core Web Vitals.',
+          'Error Boundaries: Add comprehensive React error handling with user-friendly fallbacks.',
+          'SEO Optimization: Implement meta tags, structured data, and Open Graph for social sharing.',
+          'Monitoring: Set up error tracking and performance monitoring for production deployment.',
+        ],
+      },
+      {
+        name: 'Phase 7: Deployment and Scaling',
+        tasks: [
+          'Firebase Deployment: Configure Firebase hosting with Functions for scalable serverless architecture.',
+          'CI/CD Pipeline: Set up GitHub Actions for automated testing and deployment.',
+          'Environment Configuration: Manage production secrets and environment-specific settings.',
+          'Load Testing: Verify platform performance under realistic traffic conditions.',
+        ],
+      },
+      {
+        name: 'Phase 8: Enhancement and Maintenance',
+        tasks: [
+          'User Analytics: Implement usage tracking to understand how users consume news across perspectives.',
+          'Content Quality: Add article verification and fact-checking integration capabilities.',
+          'Mobile Optimization: Enhance mobile experience with progressive web app features.',
+          'Community Features: Consider user feedback systems and preference customization.',
+        ],
+      },
+    ],
+    conclusion: `All Angles News successfully demonstrates advanced full-stack development capabilities while addressing a critical need for unbiased news consumption. The platform combines cutting-edge web technologies with innovative news aggregation techniques to create a unique media literacy tool. Key technical achievements include building a robust RSS processing pipeline that handles unreliable feeds, implementing comprehensive topic extraction with 100% coverage guarantee, solving complex React state management for cross-page data consistency, and deploying a production-ready serverless architecture on Firebase. The project showcases expertise in TypeScript, Next.js, Python, Firebase Functions, and modern web development practices while tackling real-world challenges in news aggregation and political bias detection.`,
+    link: 'https://allanglesnews-311cc.web.app',
+  },
+  {
+    id: 2,
+    slug: 'cyber-infiltrator',
     title: 'Cyber Infiltrator',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Software & AI'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
     overview: `Cyber Infiltrator is a 2D top-down adventure game that combines elements of classic Pokémon games with hacking, social engineering, stealth mechanics, and a dynamic moral system. Players take on the role of a skilled hacker and social engineer in a futuristic world, navigating complex environments filled with security systems, NPCs, and moral dilemmas.`,
     goals: [
       'Create an engaging and morally-driven narrative.',
@@ -95,12 +190,11 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 2,
+    id: 3,
+    slug: 'machine-learning-dynamic-narrative-gaming',
     title:
       'Application of Machine Learning for Personalised Dynamic Narrative Generation in Gaming',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Software & AI'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
     overview: `The Text-Based Game with AI Story Generation project is a creative endeavor that combines the realms of machine learning and narrative storytelling. The primary objective is to create an interactive text-based game where the storyline is dynamically generated by an AI model. This project encompasses extensive research into machine learning technologies, including RNNs, GANs, and VAEs, as well as natural language processing techniques such as sentiment analysis, Named Entity Recognition (NER), and Topic Modeling. The ultimate goal is to craft an engaging and immersive gaming experience that adapts to player input and emotions.`,
     goals: [
       'AI-Driven Storytelling: Develop an AI-driven system capable of generating coherent and context-aware story responses based on user interactions.',
@@ -109,7 +203,9 @@ export const projectData: Project[] = [
       'Named Entity Recognition: Implement Named Entity Recognition to ensure consistency in the narrative by identifying and classifying entities like character names and locations.',
       "Web Scraping: Utilize web scraping techniques, specifically Scrapy, to collect textual data from Project Gutenberg, a repository of copyright-free eBooks, to enhance the AI's storytelling capabilities.",
     ],
-    images: ['assets/ApplicationofMachineLearningforPersonalisedDynamicNarrativeGenerationinGaming/text_game.jpeg'],
+    images: [
+      'assets/ApplicationofMachineLearningforPersonalisedDynamicNarrativeGenerationinGaming/text_game.jpeg',
+    ],
     phases: [
       {
         name: 'Phase 1: Literature Review and Research',
@@ -166,11 +262,10 @@ export const projectData: Project[] = [
     link: 'https://drive.google.com/drive/folders/1eq3q4mxorJ-GpGWRAEpjvre8ZjKMxi0Z?usp=sharing',
   },
   {
-    id: 3,
+    id: 4,
+    slug: 'zodi-angular-nx-ecommerce',
     title: 'Zodi - Angular NX E-Commerce Solution',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Mobile & UX Design'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Mobile & UX Design'),
     overview: `Zodi is an e-commerce solution built using Angular NX, designed to deliver a seamless online shopping experience for shoppers. This project not only includes the customer shoe store website but also a dedicated admin portal within the same NX project. The admin portal allows administrators to manage orders, products, and inventory, ensuring that any changes made here are instantly reflected on the main Zodi website.`,
     goals: [
       'E-Commerce Platform: Develop a feature-rich e-commerce platform, allowing customers to explore and purchase shoe products.',
@@ -242,11 +337,10 @@ export const projectData: Project[] = [
     link: 'https://zodi-shop.web.app/',
   },
   {
-    id: 4,
+    id: 5,
+    slug: 'sprinkler-leak-detection-ml',
     title: 'Sprinkler System Leak Detection with Machine Learning',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Software & AI'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
     overview: `This project makes use of Python and machine learning to develop an effective approach for identifying and categorizing sprinkler system faults. The main goal is to analyze pressure data gathered from sprinkler systems in order to pinpoint particular fault types, such as leaks, trapped air, and blowouts.  Using a variety of sensor technologies and machine learning techniques, the project aims to improve sprinkler system leak detection efficiency and reliability.`,
     goals: [
       'Develop a system capable of detecting and classifying different types of faults in sprinkler systems, including leaks, trapped air, and blowouts.',
@@ -254,7 +348,9 @@ export const projectData: Project[] = [
       'Investigate sensor technologies, including acoustic sensors, flow meters, and pressure sensors, to gather relevant data for analysis.',
       'Perform extensive data analysis to identify fault patterns and establish criteria for fault classification based on pressure loss over time.',
     ],
-    images: ['assets/SprinklerSystemLeakDetectionwithMachineLearning/sprinkler.jpeg'],
+    images: [
+      'assets/SprinklerSystemLeakDetectionwithMachineLearning/sprinkler.jpeg',
+    ],
     phases: [
       {
         name: 'Phase 1: Literature Review and Research',
@@ -310,55 +406,52 @@ export const projectData: Project[] = [
   },
   {
     id: 6,
+    slug: '3d-binaural-audio-self-motion',
     title: '3D Binaural Audio Self-Motion Illusion',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Audio & Sound Design'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Audio & Sound Design'),
     overview: `This project explores the creation of an immersive 3D binaural soundscape designed to evoke an illusion of self-motion through audio cues alone. By leveraging principles of auditory spatial perception, I created a soundscape that simulates movement through virtual environments, showcasing proficiency in spatial audio design, programming, and sound engineering tools.`,
     goals: [
       'Investigate human auditory perception of spatial cues such as elevation, distance, and direction.',
       'Create a 3D soundscape that evokes a convincing illusion of self-motion without visual stimuli.',
       'Implement sound manipulation techniques, including the Doppler effect and Head-Related Transfer Function (HRTF), to enhance realism.',
-      'Showcase expertise in audio design software, including Pure Data and Logic Pro X.'
+      'Showcase expertise in audio design software, including Pure Data and Logic Pro X.',
     ],
-    images: [
-      'assets/3DBinauralAudioSelfMotionIllusion/fyp_soundscape.png',
-    ],
+    images: ['assets/3DBinauralAudioSelfMotionIllusion/fyp_soundscape.png'],
     phases: [
       {
         name: 'Phase 1: Research and Planning',
         tasks: [
           'Research spatial audio cues and human auditory perception related to location, distance, and movement.',
           'Study Head-Related Transfer Function (HRTF) and the Doppler effect for integration into the soundscape.',
-          'Plan a 3D soundscape setup, defining environments, types of sounds, and motion effects for realism.'
+          'Plan a 3D soundscape setup, defining environments, types of sounds, and motion effects for realism.',
         ],
       },
       {
         name: 'Phase 2: Sound Design and Initial Testing',
         tasks: [
           'Use Logic Pro X to create initial 3D soundscapes for testing spatialization effects and localization cues.',
-          'Test binaural panning effects and adjust sounds for elevation and distance perception.'
+          'Test binaural panning effects and adjust sounds for elevation and distance perception.',
         ],
       },
       {
         name: 'Phase 3: Audio Manipulation with Pure Data',
         tasks: [
           'Implement movement and location cues in Pure Data, utilizing Doppler effect and HRTF adjustments.',
-          'Program user-controlled movement in the soundscape to interactively experience self-motion.'
+          'Program user-controlled movement in the soundscape to interactively experience self-motion.',
         ],
       },
       {
         name: 'Phase 4: Testing and Calibration',
         tasks: [
           'Conduct blindfolded tests with high-quality headphones, allowing users to navigate the soundscape via keyboard input.',
-          'Record observations and refine sound cues to improve motion realism and response to user movement.'
+          'Record observations and refine sound cues to improve motion realism and response to user movement.',
         ],
       },
       {
         name: 'Phase 5: Finalization and Documentation',
         tasks: [
           'Optimize the audio system for smooth transitions in azimuth and elevation, ensuring minimal noise during movement.',
-          'Document code, design choices, and insights gained from testing for future reference.'
+          'Document code, design choices, and insights gained from testing for future reference.',
         ],
       },
     ],
@@ -367,16 +460,15 @@ export const projectData: Project[] = [
   },
   {
     id: 7,
+    slug: 'digital-spacers-iphone-animation',
     title: 'Digital Spacers - iPhone Animation Project',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Visual & Digital Media'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
     overview: `Digital Spacers is a sophisticated motion graphics project showcasing advanced video editing and animation techniques. This project features a detailed iPhone disassembly animation, holographic effects, and digital transformations that demonstrate proficiency in Adobe Creative Suite and motion graphics design.`,
     goals: [
       'Create realistic iPhone disassembly animation with precise component separation.',
       'Implement advanced holographic and digital effects for futuristic aesthetics.',
       'Develop seamless motion graphics transitions and transformations.',
-      'Showcase expertise in Adobe After Effects, Premiere Pro, and motion design.'
+      'Showcase expertise in Adobe After Effects, Premiere Pro, and motion design.',
     ],
     images: [
       'assets/DigitalSpacers/digital_spacers.png',
@@ -389,35 +481,35 @@ export const projectData: Project[] = [
         tasks: [
           'Source images of iPhone components and prepare them in Photoshop.',
           'Separate and align layers to create a 3D phone structure.',
-          'Animate the phone disassembly and reassembly in After Effects.'
+          'Animate the phone disassembly and reassembly in After Effects.',
         ],
       },
       {
         name: 'Phase 2: Hologram Effect',
         tasks: [
           'Use a grid plugin to divide the image into lines for a hologram look.',
-          'Add black flickering lines and adjust the gain to emulate an old TV effect.'
+          'Add black flickering lines and adjust the gain to emulate an old TV effect.',
         ],
       },
       {
         name: 'Phase 3: Morphing Transition',
         tasks: [
           'Export images as layered files and import them into After Effects.',
-          'Apply time remapping and pixel motion for smooth morphing between layers.'
+          'Apply time remapping and pixel motion for smooth morphing between layers.',
         ],
       },
       {
         name: 'Phase 4: Matrix-Style Background',
         tasks: [
           'Create a matrix-style text background with random character offsets.',
-          'Apply radial blur and card wipe to add depth and movement.'
+          'Apply radial blur and card wipe to add depth and movement.',
         ],
       },
       {
         name: 'Phase 5: Final Edits and Compilation',
         tasks: [
           'Edit final footage in Premiere for a cohesive video.',
-          'Polish transitions, adjust color, and fine-tune animations.'
+          'Polish transitions, adjust color, and fine-tune animations.',
         ],
       },
     ],
@@ -426,15 +518,14 @@ export const projectData: Project[] = [
   },
   {
     id: 8,
+    slug: 'allianz-gaa-championship-design',
     title: 'Allianz GAA Championship Design',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Visual & Digital Media'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
     overview: `Professional graphic design work for the Allianz GAA Championship, creating compelling visual assets for sports marketing and promotional materials.`,
     goals: [
       'Create engaging visual content for sports marketing campaigns',
       'Develop brand-consistent design materials',
-      'Design promotional assets for championship events'
+      'Design promotional assets for championship events',
     ],
     images: ['assets/VisualandDigitalMedia/ALLIANZ_GAA.jpg'],
     phases: [
@@ -443,24 +534,23 @@ export const projectData: Project[] = [
         tasks: [
           'Concept development and creative direction',
           'Visual asset creation and refinement',
-          'Brand guidelines implementation'
+          'Brand guidelines implementation',
         ],
-      }
+      },
     ],
     conclusion: `Professional sports marketing design showcasing brand consistency and visual impact for major sporting events.`,
     link: '',
   },
   {
     id: 9,
+    slug: 'fa-cup-2014-advertising',
     title: 'FA Cup 2014 Advertising Campaign',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Visual & Digital Media'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
     overview: `Advertising design work for the FA Cup 2014, creating promotional materials for one of football's most prestigious tournaments.`,
     goals: [
       'Design impactful advertising materials',
       'Create tournament-specific branding elements',
-      'Develop promotional campaign visuals'
+      'Develop promotional campaign visuals',
     ],
     images: ['assets/VisualandDigitalMedia/FACup2014Ad.jpg'],
     phases: [
@@ -469,24 +559,23 @@ export const projectData: Project[] = [
         tasks: [
           'Campaign concept development',
           'Visual identity creation',
-          'Multi-format advertising design'
+          'Multi-format advertising design',
         ],
-      }
+      },
     ],
     conclusion: `Professional advertising design work for major football tournament showcasing creative campaign development.`,
     link: '',
   },
   {
     id: 10,
+    slug: 'fa-sponsor-pack-2014',
     title: 'FA Sponsor Pack 2014',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Visual & Digital Media'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
     overview: `Comprehensive sponsor package design for the Football Association, providing professional presentation materials for partnership opportunities.`,
     goals: [
       'Create professional sponsor presentation materials',
       'Develop comprehensive partnership packages',
-      'Design compelling sponsor benefit communications'
+      'Design compelling sponsor benefit communications',
     ],
     images: ['assets/VisualandDigitalMedia/FASponserPack2014.jpg'],
     phases: [
@@ -495,24 +584,23 @@ export const projectData: Project[] = [
         tasks: [
           'Package structure planning',
           'Professional layout design',
-          'Content organization and presentation'
+          'Content organization and presentation',
         ],
-      }
+      },
     ],
     conclusion: `Professional sponsor package design demonstrating corporate presentation skills and strategic marketing material development.`,
     link: '',
   },
   {
     id: 11,
+    slug: 'hotel-christmas-marketing',
     title: 'Hotel Christmas Marketing Campaign',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Visual & Digital Media'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
     overview: `Seasonal marketing design for hospitality sector, creating festive promotional materials to drive holiday bookings and engagement.`,
     goals: [
       'Design seasonal promotional materials',
       'Create festive brand communications',
-      'Develop holiday marketing campaigns'
+      'Develop holiday marketing campaigns',
     ],
     images: ['assets/VisualandDigitalMedia/HotelChristmasFlyer.jpg'],
     phases: [
@@ -521,24 +609,23 @@ export const projectData: Project[] = [
         tasks: [
           'Holiday theme development',
           'Promotional material design',
-          'Brand-consistent festive styling'
+          'Brand-consistent festive styling',
         ],
-      }
+      },
     ],
     conclusion: `Seasonal marketing design showcasing hospitality sector promotional expertise and festive campaign development.`,
     link: '',
   },
   {
     id: 12,
+    slug: 'friendlies-advertising-usa',
     title: 'Friendlies Advertising USA Campaign',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Visual & Digital Media'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
     overview: `International advertising campaign design for USA Friendlies, creating promotional materials for international football events targeting American audiences.`,
     goals: [
       'Design culturally relevant advertising for US market',
       'Create engaging promotional materials for international football',
-      'Develop brand awareness campaigns for American audiences'
+      'Develop brand awareness campaigns for American audiences',
     ],
     images: ['assets/VisualandDigitalMedia/FriendliesAdvertisingUSA.jpg'],
     phases: [
@@ -547,24 +634,23 @@ export const projectData: Project[] = [
         tasks: [
           'Market research and cultural adaptation',
           'Creative concept development for US audience',
-          'Multi-platform advertising design'
+          'Multi-platform advertising design',
         ],
-      }
+      },
     ],
     conclusion: `International advertising campaign showcasing cross-cultural marketing expertise and sports promotion design.`,
     link: '',
   },
   {
     id: 13,
+    slug: 'schools-rugby-ad-pack-2015',
     title: 'Schools Rugby Ad Pack 2015',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Visual & Digital Media'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
     overview: `Comprehensive advertising package design for schools rugby programs, creating educational sport promotional materials and recruitment campaigns.`,
     goals: [
       'Design engaging materials for youth rugby promotion',
       'Create educational sports marketing content',
-      'Develop recruitment-focused advertising campaigns'
+      'Develop recruitment-focused advertising campaigns',
     ],
     images: ['assets/VisualandDigitalMedia/SCHOOLSRUGBYADPACK2015.jpg'],
     phases: [
@@ -573,24 +659,23 @@ export const projectData: Project[] = [
         tasks: [
           'Youth-focused creative development',
           'Educational content design and layout',
-          'School partnership promotional materials'
+          'School partnership promotional materials',
         ],
-      }
+      },
     ],
     conclusion: `Educational sports marketing design demonstrating youth engagement and promotional campaign expertise.`,
     link: '',
   },
   {
     id: 14,
+    slug: 'special-deals-september-2014',
     title: 'Special Deals September 2014 Campaign',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Visual & Digital Media'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
     overview: `Promotional campaign design for special deals and offers, showcasing retail marketing design skills and customer engagement strategies.`,
     goals: [
       'Design compelling promotional materials for special offers',
       'Create urgency-driven marketing campaigns',
-      'Develop customer engagement through visual design'
+      'Develop customer engagement through visual design',
     ],
     images: ['assets/VisualandDigitalMedia/SpecialDealsSept2014.jpg'],
     phases: [
@@ -599,25 +684,24 @@ export const projectData: Project[] = [
         tasks: [
           'Offer-focused creative development',
           'Urgency and scarcity marketing design',
-          'Multi-channel promotional materials'
+          'Multi-channel promotional materials',
         ],
-      }
+      },
     ],
     conclusion: `Retail promotional design showcasing customer engagement and sales-driven marketing expertise.`,
     link: '',
   },
   {
     id: 15,
+    slug: 'sky-vfx-before-after',
     title: 'Sky VFX Project - Before & After',
-    category: CATEGORIES.find(
-      (cat) => cat.name === 'Visual & Digital Media'
-    ),
+    category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
     overview: `Visual effects project demonstrating advanced photo manipulation and sky replacement techniques. This project showcases before and after comparisons of digital sky enhancements and atmospheric effects.`,
     goals: [
       'Demonstrate advanced photo manipulation techniques',
       'Showcase realistic sky replacement and atmospheric effects',
       'Create compelling before and after visual comparisons',
-      'Display proficiency in digital compositing and color grading'
+      'Display proficiency in digital compositing and color grading',
     ],
     images: [
       'assets/VisualandDigitalMedia/sky_before.jpg',
@@ -629,11 +713,11 @@ export const projectData: Project[] = [
         tasks: [
           'Original photography analysis and preparation',
           'Sky replacement and atmospheric enhancement',
-          'Color grading and final compositing'
+          'Color grading and final compositing',
         ],
-      }
+      },
     ],
     conclusion: `Visual effects project demonstrating advanced digital manipulation skills and realistic atmospheric enhancement techniques.`,
     link: '',
-  }
+  },
 ];
