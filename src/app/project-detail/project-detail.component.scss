@@ -2,6 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  overflow-x: hidden;
 }
 
 .project-header {
@@ -110,6 +111,7 @@ section {
   border-radius: 12px;
   padding: 2rem;
   backdrop-filter: blur(10px);
+  overflow-x: hidden;
 }
 
 section h2 {
@@ -211,6 +213,7 @@ section h2 {
 /* Images Gallery */
 .images-gallery {
   margin-bottom: 3rem;
+  overflow-x: hidden;
 }
 
 .gallery-container {
@@ -218,6 +221,7 @@ section h2 {
   flex-direction: column;
   gap: 1rem;
   margin-top: 1rem;
+  overflow-x: hidden;
 }
 
 .main-image {
@@ -464,8 +468,8 @@ section h2 {
 
 @media (max-width: 768px) {
   .project-detail {
-    padding: 1rem 1.5rem;
-    margin: 1rem;
+    padding: 1rem;
+    margin: 0;
   }
   
   .project-hero {
@@ -520,6 +524,63 @@ section h2 {
 
   .phase-item {
     padding: 1rem;
+  }
+
+  /* Fix gallery overflow on mobile */
+  .image-picker {
+    padding: 0 30px;
+  }
+
+  .scroll-button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .thumbnail {
+    min-width: 80px;
+    height: 60px;
+  }
+
+  .main-image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-detail {
+    padding: 0.75rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  .project-hero {
+    padding: 1rem;
+  }
+
+  .image-picker {
+    padding: 0 25px;
+  }
+
+  .scroll-button {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+
+  .thumbnail {
+    min-width: 70px;
+    height: 50px;
+  }
+
+  .main-image {
+    height: 200px;
+  }
+
+  .project-info h1 {
+    font-size: 1.5rem;
   }
 }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -28,7 +29,6 @@ export class ContactComponent {
       const formData = this.contactForm.value;
       
       try {
-        // Simulate sending email - replace this with actual EmailJS implementation
         await this.simulateEmailSend(formData);
         
         // Reset form and show success message
@@ -37,7 +37,7 @@ export class ContactComponent {
         
       } catch (error) {
         console.error('Email sending failed:', error);
-        this.submitMessage = 'Thank you for your message! Please feel free to contact me directly at jordanhiggins06@gmail.com';
+        this.submitMessage = `Thank you for your message! Please feel free to contact me directly at ${environment.contactEmail}`;
       } finally {
         this.isSubmitting = false;
         
