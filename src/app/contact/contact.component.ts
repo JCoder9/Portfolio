@@ -16,6 +16,7 @@ export class ContactComponent {
   contactForm: FormGroup;
   isSubmitting = false;
   submitMessage = '';
+  isSuccess = false;
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -46,20 +47,26 @@ export class ContactComponent {
         
         // Reset form and show success message
         this.contactForm.reset();
+        this.isSuccess = true;
         this.submitMessage = 'Message sent successfully! Thank you for contacting me. I will get back to you soon.';
         
       } catch (error) {
         console.error('Email sending failed:', error);
+        this.isSuccess = false;
         this.submitMessage = `Sorry, there was an error sending your message. Please contact me directly at ${environment.contactEmail}`;
       } finally {
         this.isSubmitting = false;
         
-        // Clear message after 7 seconds
+        // Auto-close message after 7 seconds
         setTimeout(() => {
           this.submitMessage = '';
         }, 7000);
       }
     }
+  }
+
+  closeMessage() {
+    this.submitMessage = '';
   }
 
   get name() { return this.contactForm.get('name'); }

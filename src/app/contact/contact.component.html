@@ -74,12 +74,20 @@
           <span *ngIf="isSubmitting">Sending...</span>
         </button>
 
-        <div class="submit-message" *ngIf="submitMessage">
-          {{ submitMessage }}
-        </div>
-
       </form>
     </div>
 
+  </div>
+</div>
+
+<!-- Success/Error Message Popup -->
+<div class="message-popup-overlay" *ngIf="submitMessage" (click)="closeMessage()">
+  <div class="message-popup" (click)="$event.stopPropagation()">
+    <div class="message-icon" [class.success]="isSuccess" [class.error]="!isSuccess">
+      <span *ngIf="isSuccess">✓</span>
+      <span *ngIf="!isSuccess">!</span>
+    </div>
+    <p class="message-text">{{ submitMessage }}</p>
+    <button class="close-button" (click)="closeMessage()">Close</button>
   </div>
 </div>
