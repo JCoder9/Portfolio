@@ -52,10 +52,9 @@ export class ContactComponent {
   private async simulateEmailSend(formData: any): Promise<void> {
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log('Form data to be sent:', formData);
-        console.log('Email would be sent to: jordanhiggins06@gmail.com');
+        console.log('Form submission:', formData);
         resolve();
-      }, 2000);
+      }, 1000);
     });
   }
 

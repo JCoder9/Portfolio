@@ -17,6 +17,7 @@ export class ProjectsComponent {
   projects: Project[] = projectData;
   categories: Category[] = CATEGORIES;
   selectedCategory: Category = CATEGORIES[0]; // Default to "All Projects"
+  isFiltersExpanded: boolean = false;
 
   filterByCategory(category: Category): void {
     this.selectedCategory = category;
@@ -27,5 +28,11 @@ export class ProjectsComponent {
         project.category?.name === category.name
       );
     }
+    // Close filters on mobile after selection
+    this.isFiltersExpanded = false;
+  }
+
+  toggleFilters(): void {
+    this.isFiltersExpanded = !this.isFiltersExpanded;
   }
 }

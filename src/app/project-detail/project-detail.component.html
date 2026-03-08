@@ -19,7 +19,7 @@
     <div class="main-content">
       
       <!-- Project Images Gallery -->
-      <section class="images-gallery" *ngIf="project.images && project.images.length > 1">
+      <section class="images-gallery" *ngIf="project.images && (project.images.length > 1 || project.category?.name === 'Visual & Digital Media')">
         <h2>Project Gallery</h2>
         <div class="gallery-container">
           <div class="main-image">

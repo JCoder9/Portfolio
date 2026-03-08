@@ -3,16 +3,30 @@
   <p class="section-intro">Explore some of my recent work and projects.</p>
   
   <!-- Category Filter -->
-  <div class="category-filters">
-    <button 
-      *ngFor="let category of categories" 
-      [class.active]="selectedCategory.name === category.name"
-      (click)="filterByCategory(category)"
-      class="category-button"
-    >
-      <img [src]="category.icon" [alt]="category.name" class="category-icon">
-      <span>{{ category.name }}</span>
+  <div class="filter-container">
+    <!-- Mobile Filter Toggle -->
+    <button class="mobile-filter-toggle" (click)="toggleFilters()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"></path>
+      </svg>
+      <span>{{ selectedCategory.name }}</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" [class.rotated]="isFiltersExpanded">
+        <polyline points="6,9 12,15 18,9"></polyline>
+      </svg>
     </button>
+    
+    <!-- Filter Buttons -->
+    <div class="category-filters" [class.expanded]="isFiltersExpanded">
+      <button 
+        *ngFor="let category of categories" 
+        [class.active]="selectedCategory.name === category.name"
+        (click)="filterByCategory(category)"
+        class="category-button"
+      >
+        <img [src]="category.icon" [alt]="category.name" class="category-icon">
+        <span>{{ category.name }}</span>
+      </button>
+    </div>
   </div>
   
   <div class="projects-grid">
