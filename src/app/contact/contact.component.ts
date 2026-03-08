@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../environments/environment';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs.config';
 
 @Component({
   selector: 'app-contact',
@@ -29,15 +31,26 @@ export class ContactComponent {
       const formData = this.contactForm.value;
       
       try {
-        await this.simulateEmailSend(formData);
+        // Send email via EmailJS
+        await emailjs.send(
+          EMAILJS_CONFIG.SERVICE_ID,
+          EMAILJS_CONFIG.TEMPLATE_ID,
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
+            to_email: environment.contactEmail
+          },
+          EMAILJS_CONFIG.PUBLIC_KEY
+        );
         
         // Reset form and show success message
         this.contactForm.reset();
-        this.submitMessage = 'Message received! Thank you for contacting me. I will get back to you soon at ' + formData.email;
+        this.submitMessage = 'Message sent successfully! Thank you for contacting me. I will get back to you soon.';
         
       } catch (error) {
         console.error('Email sending failed:', error);
-        this.submitMessage = `Thank you for your message! Please feel free to contact me directly at ${environment.contactEmail}`;
+        this.submitMessage = `Sorry, there was an error sending your message. Please contact me directly at ${environment.contactEmail}`;
       } finally {
         this.isSubmitting = false;
         
@@ -47,15 +60,6 @@ export class ContactComponent {
         }, 7000);
       }
     }
-  }
-
-  private async simulateEmailSend(formData: any): Promise<void> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log('Form submission:', formData);
-        resolve();
-      }, 1000);
-    });
   }
 
   get name() { return this.contactForm.get('name'); }
