@@ -4,10 +4,10 @@
 
 export const EMAILJS_CONFIG = {
   // Your EmailJS Service ID (from Email Services dashboard)
-  SERVICE_ID: 'PortfolioContact',
+  SERVICE_ID: 'service_portfolio',
   
   // Your EmailJS Template ID (from Email Templates dashboard)  
-  TEMPLATE_ID: 'service_portfolio',
+  TEMPLATE_ID: 'contact_form',
   
   // Your EmailJS Public Key (from Account > General dashboard)
   PUBLIC_KEY: 'clwUpT41da1ykmMCk'
