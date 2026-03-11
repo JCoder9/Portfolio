@@ -97,6 +97,7 @@ export const projectData: Project[] = [
     ],
     conclusion: `All Angles News successfully demonstrates advanced full-stack development capabilities while addressing a critical need for unbiased news consumption. The platform combines cutting-edge web technologies with innovative news aggregation techniques to create a unique media literacy tool. Key technical achievements include building a robust RSS processing pipeline that handles unreliable feeds, implementing comprehensive topic extraction with 100% coverage guarantee, solving complex React state management for cross-page data consistency, and deploying a production-ready serverless architecture on Firebase. The project showcases expertise in TypeScript, Next.js, Python, Firebase Functions, and modern web development practices while tackling real-world challenges in news aggregation and political bias detection.`,
     link: 'https://allanglesnews-311cc.web.app',
+    githubLink: '',
   },
   {
     id: 2,
@@ -188,6 +189,7 @@ export const projectData: Project[] = [
     ],
     conclusion: `In its current phase of development, the focus is on building the fundamentals. This includes creating menus, speech interactions, inventory systems, and refining basic movements. Additionally, initial level designs are being laid out to set the groundwork for the game's environments. \n Creating Cyber Infiltrator is an ambitious project that will showcase proficiency in Unity game development and a diverse set of gameplay mechanics, including hacking, social engineering, stealth, and a dynamic moral system. Careful planning, development, testing, and player engagement will be crucial to the success of the game.`,
     link: '',
+    githubLink: '',
   },
   {
     id: 3,
@@ -260,6 +262,7 @@ export const projectData: Project[] = [
     ],
     conclusion: `In it's current phase of development the projects code is of a high quality, and has undergone testing. However, due to limitations in hardware, specifically the need for improved computational resources to enhance model training, the results of the trained model may still be incoherent. \n The Text-Based Game with AI Story Generation project explores the intersection of machine learning and narrative creativity. It looks to provide players with a personalized and emotionally resonant gaming experience. By following a well-structured methodology and leveraging advanced natural language processing techniques, this project aims to push the boundaries of AI-driven storytelling in the context of interactive text-based games. Future iterations may explore even more advanced NLP techniques and expand the dataset for richer and more engaging narratives.`,
     link: 'https://drive.google.com/drive/folders/1eq3q4mxorJ-GpGWRAEpjvre8ZjKMxi0Z?usp=sharing',
+    githubLink: 'https://github.com/JCoder9/StoryGenerator',
   },
   {
     id: 4,
@@ -335,6 +338,7 @@ export const projectData: Project[] = [
     ],
     conclusion: `Zodi is an e-commerce solution built with Angular NX, combining the customer-facing main website and a powerful admin portal for seamless order and product management. The real-time data synchronization ensures that any changes made by administrators are instantly reflected on the main website. This project aims to provide an exceptional online shopping experience for customers while streamlining administrative tasks for shop owners. \n In the ongoing development phase, discussions with the client regarding the implementation of Stripe payments for secure transactions as well as some design decisions are in progress. The final version of the website will reflect the outcome of these discussions.`,
     link: 'https://zodi-shop.web.app/',
+    githubLink: 'https://github.com/JCoder9/Zodi',
   },
   {
     id: 5,
@@ -403,6 +407,7 @@ export const projectData: Project[] = [
     ],
     conclusion: `This project is an ambitious effort to make use of sensor technologies and machine learning to improve the accuracy when identifying and categorizing sprinkler system defects. The project aims to provide a reliable solution for recognizing leaks, trapped air, blowouts, and system integrity ("Passed" category) by following a well-structured process that includes data analysis, fault classification, and machine learning model training. The system's accuracy and reliability in practical applications are continuously improved through ongoing calibration and improvement of fault detection criteria. For even more accurate fault identification, future versions might investigate new sensor technologies and sophisticated machine learning algorithms.`,
     link: 'https://drive.google.com/drive/folders/1QNv679OlAbkYGrk5w89y9JU_GBCX-sla?usp=sharing',
+    githubLink: 'https://github.com/JCoder9/AiPipeLeakDetector',
   },
   {
     id: 6,

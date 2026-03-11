@@ -20,4 +20,5 @@ export interface Project {
   phases: Phase[];
   conclusion: string;
   link: string;
+  githubLink?: string;
 }
