@@ -15,9 +15,20 @@ import { Project, Category } from '../shared/models/project.model';
 export class ProjectsComponent {
   allProjects: Project[] = projectData;
   projects: Project[] = projectData;
-  categories: Category[] = CATEGORIES;
+  categories: Category[] = this.getCategoriesWithProjects();
   selectedCategory: Category = CATEGORIES[0]; // Default to "All Projects"
   isFiltersExpanded: boolean = false;
+
+  getCategoriesWithProjects(): Category[] {
+    return CATEGORIES.filter(category => {
+      // Always include "All Projects"
+      if (category.name === 'All Projects') {
+        return true;
+      }
+      // Include category only if it has at least one project
+      return this.allProjects.some(project => project.category?.name === category.name);
+    });
+  }
 
   filterByCategory(category: Category): void {
     this.selectedCategory = category;

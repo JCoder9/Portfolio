@@ -268,7 +268,7 @@ export const projectData: Project[] = [
     id: 4,
     slug: 'zodi-angular-nx-ecommerce',
     title: 'Zodi - Angular NX E-Commerce Solution',
-    category: CATEGORIES.find((cat) => cat.name === 'Mobile & UX Design'),
+    category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
     overview: `Zodi is an e-commerce solution built using Angular NX, designed to deliver a seamless online shopping experience for shoppers. This project not only includes the customer shoe store website but also a dedicated admin portal within the same NX project. The admin portal allows administrators to manage orders, products, and inventory, ensuring that any changes made here are instantly reflected on the main Zodi website.`,
     goals: [
       'E-Commerce Platform: Develop a feature-rich e-commerce platform, allowing customers to explore and purchase shoe products.',
