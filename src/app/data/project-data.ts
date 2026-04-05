@@ -101,6 +101,263 @@ export const projectData: Project[] = [
   },
   {
     id: 2,
+    slug: 'wandr-buddy',
+    title: 'WandRBuddy',
+    category: CATEGORIES.find((cat) => cat.name === 'Mobile Apps'),
+    overview: `WandRBuddy is a mobile safety and companion-planning app designed to help users request walking companions, collaborate on routes, and access emergency support in real time. Built with Expo, React Native, and TypeScript, the app combines live location sharing, collaborative route planning, distress workflows, chat, and safety-conscious UI design into a single product focused on public, visible, and socially supported walking experiences. The project demonstrates end-to-end mobile product thinking, from native device capabilities and custom map rendering with MapLibre to route planning flows, themed modal systems, and a scalable architecture that can evolve from mock services into production Firebase-backed infrastructure.`,
+    goals: [
+      'Build a privacy-aware mobile safety product centered on walk requests, live coordination, and emergency response.',
+      'Create a collaborative route planner where users can set start and destination points, add stops, and propose route changes.',
+      'Integrate maps, device location, camera, motion sensors, and real-time-style workflows into a cohesive React Native experience.',
+      'Design an intentional mobile UI system with a distinctive sunburst visual identity, reusable components, and consistent interaction patterns.',
+      'Demonstrate production-relevant mobile engineering skills across TypeScript, Expo native modules, mapping, state management, and scalable app architecture.',
+    ],
+    images: [
+      'assets/WandRBuddy/homeRequests.jpg',
+      'assets/WandRBuddy/homeProfile.jpg',
+      'assets/WandRBuddy/routes1.jpg',
+      'assets/WandRBuddy/routes2.jpg',
+      'assets/WandRBuddy/walkRequest.jpg',
+      'assets/WandRBuddy/walkRequestPopup.jpg',
+      'assets/WandRBuddy/chats.jpg',
+      'assets/WandRBuddy/emergency.jpg',
+      'assets/WandRBuddy/emergencyAlerts.jpg',
+    ],
+    phases: [
+      {
+        name: 'Phase 1: Product Definition and Architecture',
+        tasks: [
+          'Defined the core safety workflows for requesting a walking companion, accepting a request, planning a shared route, and escalating to emergency mode.',
+          'Structured the app around Expo and React Native with TypeScript, React Navigation, and modular screen/component boundaries.',
+          'Designed context-based state layers for authentication, location, and emergency workflows to support clear separation of concerns.',
+          'Planned a development approach using mock Firebase-style services first, with a path toward production backend integration.',
+        ],
+      },
+      {
+        name: 'Phase 2: Core Mobile Foundations',
+        tasks: [
+          'Implemented authentication, profile, request, chat, and emergency screen flows using a mobile-first navigation architecture.',
+          'Integrated Expo native capabilities including location, camera, media handling, and motion/shake detection support.',
+          'Built reusable UI primitives and shared theming to keep behavior and styling consistent across the app.',
+          'Created mock data pipelines and service abstractions to enable local development without depending on a live backend.',
+        ],
+      },
+      {
+        name: 'Phase 3: Mapping and Route Planning',
+        tasks: [
+          'Integrated MapLibre for custom map rendering, markers, route overlays, and map-based interaction within React Native.',
+          'Built a route planner that supports typed start and destination search, current-location centering, map-based point selection, and manual stop placement.',
+          'Added explicit “select on map” modes so start and destination can be placed directly from the map UI.',
+          'Implemented route-stop workflows that allow users to add cafes, parks, or other public waypoints along a walk.',
+        ],
+      },
+      {
+        name: 'Phase 4: Free-Stack Route Intelligence',
+        tasks: [
+          'Connected the planner to free public services for route and place intelligence using Photon for place suggestions, Overpass for POIs, and OSRM for walking routes.',
+          'Added route recommendation cards that score route options based on nearby public places such as cafes, parks, libraries, and transit stops.',
+          'Built stop suggestion flows that surface POIs visually on the map and allow them to be added directly into the route.',
+          'Separated fetched route geometry from user-added route stops to preserve route quality and avoid corrupting the route path.',
+        ],
+      },
+      {
+        name: 'Phase 5: Walk Request and Collaboration Flows',
+        tasks: [
+          'Implemented request creation, acceptance, requester review, and active-walk screens to support both solo and collaborative planning.',
+          'Built route response workflows so users can accept a proposed route as-is or propose changes back to the requester.',
+          'Added multi-responder requester flows where the original requester can review and select from incoming responses.',
+          'Designed the app to support both direct user targeting and nearby-user broadcast requests.',
+        ],
+      },
+      {
+        name: 'Phase 6: Emergency and Safety Features',
+        tasks: [
+          'Built distress-mode flows that use device capabilities to support emergency alerting and camera-based recording scaffolding.',
+          'Integrated emergency alerts, responder flows, and high-priority UI affordances for urgent states.',
+          'Added shake-detection hooks and safety-conscious interaction patterns while keeping accidental triggering under control.',
+          'Designed the emergency flows to be extensible for future contact notification, media upload, and escalation services.',
+        ],
+      },
+      {
+        name: 'Phase 7: Design System and UX Refinement',
+        tasks: [
+          'Created a custom pastel sunburst design system with shared gradients, surfaces, borders, shadows, and iconography.',
+          'Replaced inconsistent emoji-based UI with a cohesive Lucide icon system for a more professional and product-ready presentation.',
+          'Built reusable themed dialog components to replace native alerts and maintain visual consistency across key user flows.',
+          'Applied the design system across request, route-planning, active-walk, distress, chat, and profile experiences.',
+        ],
+      },
+      {
+        name: 'Phase 8: Production Readiness and Portfolio Value',
+        tasks: [
+          'Organized the app around reusable services and abstractions so the free-stack planner can later be swapped for hosted providers without rewriting the UI.',
+          'Kept the architecture compatible with a future Firebase-backed production model for authentication, chat, walk requests, and emergency events.',
+          'Validated TypeScript integrity and mobile build compatibility while iterating on native dependencies and environment setup.',
+          'Positioned the project as a portfolio piece that demonstrates mobile product design, mapping workflows, native device integration, and full-stack thinking.',
+        ],
+      },
+    ],
+    conclusion: `WandRBuddy is a strong portfolio project because it demonstrates substantially more than standard CRUD mobile development. It combines React Native product design, TypeScript architecture, native device integration, custom mapping workflows, route planning, safety-oriented UX, and scalable service abstraction in one cohesive application. From an employer’s perspective, the project highlights practical experience with Expo, React Native, TypeScript, React Navigation, MapLibre, expo-location, expo-camera, expo-sensors, expo-linear-gradient, lucide-react-native, react-native-svg, AsyncStorage, and Firebase-oriented service patterns. It also shows strong judgment in problem solving: replacing brittle native alerts with reusable themed dialogs, stabilizing native library integration, supporting collaborative route editing, and building a low-cost MVP planner using public geospatial services. The result is a differentiated mobile product that reflects both engineering rigor and product sense, especially around safety, mapping, and real-world user workflows.`,
+    link: '',
+    githubLink: '',
+  },
+  {
+    id: 5,
+    slug: 'zodi-angular-nx-ecommerce',
+    title: 'Zodi - Angular NX E-Commerce Solution',
+    category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
+    overview: `Zodi is an e-commerce solution built using Angular NX, designed to deliver a seamless online shopping experience for shoppers. This project not only includes the customer shoe store website but also a dedicated admin portal within the same NX project. The admin portal allows administrators to manage orders, products, and inventory, ensuring that any changes made here are instantly reflected on the main Zodi website.`,
+    goals: [
+      'E-Commerce Platform: Develop a feature-rich e-commerce platform, allowing customers to explore and purchase shoe products.',
+      'Responsive Design: Implement responsive design principles across the main website and admin portal using Angular NX, ensuring accessibility on various devices.',
+      'Secure Payments: Integrate Stripe payment gateway for secure and efficient online transactions.',
+      'Sass Styling: Utilize Sass for consistent and customizable UI/UX.',
+      'Database Connectivity: Establish server-side connectivity through Node.js and MongoDB for efficient inventory management, order processing, and seamless data synchronization between the main website and admin portal.',
+      'Admin Portal: Create a robust admin portal within the same Angular NX project, allowing administrators to manage orders, products, and inventory with real-time synchronization to the main website.',
+    ],
+    images: [
+      'assets/zodi/zodi_home.png',
+      'assets/zodi/zodi_products.png',
+      'assets/zodi/zodi_categories.png',
+    ],
+    phases: [
+      {
+        name: 'Phase 1: Planning and Design',
+        tasks: [
+          'Define project scope and objectives for both the main website and admin portal',
+          'Develop the design and functionality of the site.',
+          'Plan Stripe integration for secure payment processing.',
+          'Define requirements for real-time data synchronization between the main website and admin portal.',
+        ],
+      },
+      {
+        name: 'Phase 2: Front-End Development',
+        tasks: [
+          'Set up the Angular NX project structure, organizing code for modularity and reusability.',
+          'Create user interfaces for the main website, including product browsing, details, and the shopping cart.',
+          'Develop the responsive design using Angular Flex Grid and Sass for styling.',
+          'Implement Stripe integration for secure payment processing on the main website.',
+          'Create a user-friendly admin portal with Angular components and views.',
+        ],
+      },
+      {
+        name: 'Phase 3: Back-End Development',
+        tasks: [
+          'Develop a Node.js server to handle user accounts, orders, and inventory management.',
+          'Implement server routes for user authentication, product retrieval, and order processing.',
+          'Establish a secure connection to the MongoDB database for storing product data and user information.',
+          'Set up an API for seamless communication between the main website, admin portal, and the backend.',
+        ],
+      },
+      {
+        name: 'Phase 4: Real-Time Data Synchronization',
+        tasks: [
+          'Implement a real-time data synchronization mechanism between the main website and the admin portal.',
+          'Ensure that changes made in the admin portal (such as adding, editing, or deleting products) are instantly reflected on the main website and vice versa.',
+        ],
+      },
+      {
+        name: 'Phase 5: Testing and Optimization',
+        tasks: [
+          'Conduct rigorous testing, including functional, usability, and security testing.',
+          'Optimize the performance of both the main website and admin portal.',
+          'Address and resolve any identified bugs, issues, or user feedback.',
+        ],
+      },
+      {
+        name: 'Phase 6: Launch and Post-Launch Support',
+        tasks: [
+          'Monitor website performance, security, and user feedback post-launch.',
+          'Provide a method for user feedback so future improvements can be implemented.',
+          'Consider future enhancements and features based on user demand and market trends.',
+        ],
+      },
+    ],
+    conclusion: `Zodi is an e-commerce solution built with Angular NX, combining the customer-facing main website and a powerful admin portal for seamless order and product management. The real-time data synchronization ensures that any changes made by administrators are instantly reflected on the main website. This project aims to provide an exceptional online shopping experience for customers while streamlining administrative tasks for shop owners. \n In the ongoing development phase, discussions with the client regarding the implementation of Stripe payments for secure transactions as well as some design decisions are in progress. The final version of the website will reflect the outcome of these discussions.`,
+    link: 'https://zodi-shop.web.app/',
+    githubLink: '',
+  },
+  {
+    id: 5,
+    slug: 'stories-android-audio-storytelling-app',
+    title: 'Stories - Android Audio Storytelling App',
+    category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
+    overview: `ElderStories is a native Android application designed to help families preserve oral histories through guided audio recording, playback, timeline-based editing, and transcript-assisted storytelling. The app combines a distinctive retro cassette-inspired interface with practical modern tooling like waveform visualization, snippet-based editing, live speech input, and word-level transcript interaction. It was built to make recording long-form family memories feel approachable for non-technical users while still giving them flexible editing controls.`,
+    goals: [
+      'Story Preservation: Create a mobile-first storytelling tool that helps users capture spoken family memories in a more personal format than plain text.',
+      'Accessible Recording Experience: Design an intuitive recording interface with a nostalgic cassette-inspired visual identity that feels familiar and easy to use.',
+      'Timeline-Based Editing: Let users break recordings into manageable snippets, review them visually, and perform editing operations like cut, copy, paste, and reordering.',
+      'Transcript-Assisted Editing: Support transcript-driven interaction with word-level timing so spoken content can be reviewed and eventually edited more precisely.',
+      'Playback and Review: Provide smooth audio playback and seek controls so users can review stories before saving or sharing them.',
+      'Scalable Data Layer: Prepare the app for cloud-connected workflows using Firebase and service integrations for future synchronization, storage, and AI-assisted features.',
+    ],
+    images: [
+      'assets/ElderStories/recorder1.jpg',
+      'assets/ElderStories/recorder2.jpg',
+      'assets/ElderStories/transcript.jpg',
+    ],
+    phases: [
+      {
+        name: 'Phase 1: Product Planning and UX Direction',
+        tasks: [
+          'Defined the product around oral history preservation, focusing on recording, reviewing, and editing spoken family stories.',
+          'Planned a retro cassette-inspired interface to make the recording experience visually memorable and emotionally aligned with storytelling.',
+          'Mapped out the core user flow from recording to transcription, snippet review, editing, and save/export behavior.',
+          'Identified technical requirements for audio capture, playback, transcript rendering, and timeline visualization on Android.',
+        ],
+      },
+      {
+        name: 'Phase 2: Core Android Architecture',
+        tasks: [
+          'Set up the Android project using Kotlin, Jetpack components, ViewBinding, and a ViewModel-driven UI state approach.',
+          'Structured the app into feature-focused modules for recording, playback, editing, transcription, and reusable UI components.',
+          'Built foundational app state management with LiveData and AndroidViewModel patterns.',
+          'Prepared the app for device-based testing and Gradle-based debug/release builds.',
+        ],
+      },
+      {
+        name: 'Phase 3: Audio Recording and Playback',
+        tasks: [
+          'Implemented microphone recording with local file output and real-time audio level monitoring.',
+          'Added playback controls using Media3 ExoPlayer for a smooth in-app listening experience.',
+          'Supported transport-style actions such as record, stop, play, pause, rewind, and fast-forward.',
+          'Handled local file creation and storage workflows for recorded story content.',
+        ],
+      },
+      {
+        name: 'Phase 4: Timeline and Editing Features',
+        tasks: [
+          'Built a horizontal snippet timeline where each item reflects the duration of the recording visually.',
+          'Added waveform rendering to make snippets easier to understand at a glance.',
+          'Implemented drag-and-drop snippet movement and laid groundwork for split and join operations.',
+          'Added cut, copy, and paste style editing actions for audio segment manipulation.',
+        ],
+      },
+      {
+        name: 'Phase 5: Transcript and AI-Assisted Features',
+        tasks: [
+          'Created transcript models with word-level timing support to connect spoken audio with readable text.',
+          'Built a custom transcript editor for displaying and selecting individual timed words.',
+          'Integrated live and experimental speech recognition services using Android SpeechRecognizer.',
+          'Prepared the codebase for future AI and cloud service integrations using Retrofit, OkHttp, Firebase, and external transcription workflows.',
+        ],
+      },
+      {
+        name: 'Phase 6: Testing, Device Validation, and Polish',
+        tasks: [
+          'Validated the app on a real Android phone and resolved build and installation issues.',
+          'Refined the timeline and transcript experience with seeded test recordings and demo content for easier product review.',
+          'Improved resilience around development-time transcription and UI initialization flows.',
+          'Documented setup, testing, transcription behavior, and implementation details for future iteration.',
+        ],
+      },
+    ],
+    conclusion: `ElderStories demonstrates my ability to build a polished, feature-rich Android product that combines strong UI direction with non-trivial media functionality. The project includes native audio recording, Media3-based playback, duration-aware timeline rendering, waveform visualization, transcript interaction, and editing workflows that connect text and sound. It also shows how I approach real product constraints: building reliable fallbacks, testing on physical hardware, and shaping the codebase so future AI, cloud sync, and export features can be added without rewriting the application from scratch.`,
+    link: '',
+    githubLink: '',
+  },
+  {
+    id: 3,
     slug: 'cyber-infiltrator',
     title: 'Cyber Infiltrator',
     category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
@@ -192,7 +449,7 @@ export const projectData: Project[] = [
     githubLink: '',
   },
   {
-    id: 3,
+    id: 4,
     slug: 'machine-learning-dynamic-narrative-gaming',
     title:
       'Application of Machine Learning for Personalised Dynamic Narrative Generation in Gaming',
@@ -264,84 +521,9 @@ export const projectData: Project[] = [
     link: 'https://drive.google.com/drive/folders/1eq3q4mxorJ-GpGWRAEpjvre8ZjKMxi0Z?usp=sharing',
     githubLink: 'https://github.com/JCoder9/StoryGenerator',
   },
+  
   {
-    id: 4,
-    slug: 'zodi-angular-nx-ecommerce',
-    title: 'Zodi - Angular NX E-Commerce Solution',
-    category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
-    overview: `Zodi is an e-commerce solution built using Angular NX, designed to deliver a seamless online shopping experience for shoppers. This project not only includes the customer shoe store website but also a dedicated admin portal within the same NX project. The admin portal allows administrators to manage orders, products, and inventory, ensuring that any changes made here are instantly reflected on the main Zodi website.`,
-    goals: [
-      'E-Commerce Platform: Develop a feature-rich e-commerce platform, allowing customers to explore and purchase shoe products.',
-      'Responsive Design: Implement responsive design principles across the main website and admin portal using Angular NX, ensuring accessibility on various devices.',
-      'Secure Payments: Integrate Stripe payment gateway for secure and efficient online transactions.',
-      'Sass Styling: Utilize Sass for consistent and customizable UI/UX.',
-      'Database Connectivity: Establish server-side connectivity through Node.js and MongoDB for efficient inventory management, order processing, and seamless data synchronization between the main website and admin portal.',
-      'Admin Portal: Create a robust admin portal within the same Angular NX project, allowing administrators to manage orders, products, and inventory with real-time synchronization to the main website.',
-    ],
-    images: [
-      'assets/zodi/zodi_home.png',
-      'assets/zodi/zodi_products.png',
-      'assets/zodi/zodi_categories.png',
-    ],
-    phases: [
-      {
-        name: 'Phase 1: Planning and Design',
-        tasks: [
-          'Define project scope and objectives for both the main website and admin portal',
-          'Develop the design and functionality of the site.',
-          'Plan Stripe integration for secure payment processing.',
-          'Define requirements for real-time data synchronization between the main website and admin portal.',
-        ],
-      },
-      {
-        name: 'Phase 2: Front-End Development',
-        tasks: [
-          'Set up the Angular NX project structure, organizing code for modularity and reusability.',
-          'Create user interfaces for the main website, including product browsing, details, and the shopping cart.',
-          'Develop the responsive design using Angular Flex Grid and Sass for styling.',
-          'Implement Stripe integration for secure payment processing on the main website.',
-          'Create a user-friendly admin portal with Angular components and views.',
-        ],
-      },
-      {
-        name: 'Phase 3: Back-End Development',
-        tasks: [
-          'Develop a Node.js server to handle user accounts, orders, and inventory management.',
-          'Implement server routes for user authentication, product retrieval, and order processing.',
-          'Establish a secure connection to the MongoDB database for storing product data and user information.',
-          'Set up an API for seamless communication between the main website, admin portal, and the backend.',
-        ],
-      },
-      {
-        name: 'Phase 4: Real-Time Data Synchronization',
-        tasks: [
-          'Implement a real-time data synchronization mechanism between the main website and the admin portal.',
-          'Ensure that changes made in the admin portal (such as adding, editing, or deleting products) are instantly reflected on the main website and vice versa.',
-        ],
-      },
-      {
-        name: 'Phase 5: Testing and Optimization',
-        tasks: [
-          'Conduct rigorous testing, including functional, usability, and security testing.',
-          'Optimize the performance of both the main website and admin portal.',
-          'Address and resolve any identified bugs, issues, or user feedback.',
-        ],
-      },
-      {
-        name: 'Phase 6: Launch and Post-Launch Support',
-        tasks: [
-          'Monitor website performance, security, and user feedback post-launch.',
-          'Provide a method for user feedback so future improvements can be implemented.',
-          'Consider future enhancements and features based on user demand and market trends.',
-        ],
-      },
-    ],
-    conclusion: `Zodi is an e-commerce solution built with Angular NX, combining the customer-facing main website and a powerful admin portal for seamless order and product management. The real-time data synchronization ensures that any changes made by administrators are instantly reflected on the main website. This project aims to provide an exceptional online shopping experience for customers while streamlining administrative tasks for shop owners. \n In the ongoing development phase, discussions with the client regarding the implementation of Stripe payments for secure transactions as well as some design decisions are in progress. The final version of the website will reflect the outcome of these discussions.`,
-    link: 'https://zodi-shop.web.app/',
-    githubLink: 'https://github.com/JCoder9/Zodi',
-  },
-  {
-    id: 5,
+    id: 6,
     slug: 'sprinkler-leak-detection-ml',
     title: 'Sprinkler System Leak Detection with Machine Learning',
     category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
@@ -410,7 +592,7 @@ export const projectData: Project[] = [
     githubLink: 'https://github.com/JCoder9/AiPipeLeakDetector',
   },
   {
-    id: 6,
+    id: 7,
     slug: '3d-binaural-audio-self-motion',
     title: '3D Binaural Audio Self-Motion Illusion',
     category: CATEGORIES.find((cat) => cat.name === 'Audio & Sound Design'),
@@ -464,7 +646,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 7,
+    id: 8,
     slug: 'digital-spacers-iphone-animation',
     title: 'Digital Spacers - iPhone Animation Project',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -522,7 +704,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 8,
+    id: 9,
     slug: 'allianz-gaa-championship-design',
     title: 'Allianz GAA Championship Design',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -547,7 +729,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 9,
+    id: 10,
     slug: 'fa-cup-2014-advertising',
     title: 'FA Cup 2014 Advertising Campaign',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -572,7 +754,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 10,
+    id: 11,
     slug: 'fa-sponsor-pack-2014',
     title: 'FA Sponsor Pack 2014',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -597,7 +779,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 11,
+    id: 12,
     slug: 'hotel-christmas-marketing',
     title: 'Hotel Christmas Marketing Campaign',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -622,7 +804,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 12,
+    id: 13,
     slug: 'friendlies-advertising-usa',
     title: 'Friendlies Advertising USA Campaign',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -647,7 +829,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 13,
+    id: 14,
     slug: 'schools-rugby-ad-pack-2015',
     title: 'Schools Rugby Ad Pack 2015',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -672,7 +854,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 14,
+    id: 15,
     slug: 'special-deals-september-2014',
     title: 'Special Deals September 2014 Campaign',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -697,7 +879,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 15,
+    id: 16,
     slug: 'sky-vfx-before-after',
     title: 'Sky VFX Project - Before & After',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
