@@ -21,6 +21,13 @@ export class ProjectDetailComponent implements OnInit {
   canScrollRight: boolean = false;
   showPopup: boolean = false;
   popupImage: string = '';
+  currentImageIndex: number = 0;
+  
+  // Touch/drag properties
+  isDragging: boolean = false;
+  startX: number = 0;
+  currentX: number = 0;
+  dragOffset: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -79,6 +86,9 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   openPopup(image: string): void {
+    if (this.project && this.project.images) {
+      this.currentImageIndex = this.project.images.indexOf(image);
+    }
     this.popupImage = image;
     this.showPopup = true;
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
@@ -94,5 +104,98 @@ export class ProjectDetailComponent implements OnInit {
     if (event.target === event.currentTarget) {
       this.closePopup();
     }
+  }
+
+  // Popup navigation
+  nextImage(): void {
+    if (this.project && this.project.images && this.project.images.length > 0) {
+      this.currentImageIndex = (this.currentImageIndex + 1) % this.project.images.length;
+      this.popupImage = this.project.images[this.currentImageIndex];
+    }
+  }
+
+  prevImage(): void {
+    if (this.project && this.project.images && this.project.images.length > 0) {
+      this.currentImageIndex = (this.currentImageIndex - 1 + this.project.images.length) % this.project.images.length;
+      this.popupImage = this.project.images[this.currentImageIndex];
+    }
+  }
+
+  // Touch/drag events for mobile
+  onTouchStart(event: TouchEvent): void {
+    this.isDragging = true;
+    this.startX = event.touches[0].clientX;
+    this.dragOffset = 0;
+  }
+
+  onTouchMove(event: TouchEvent): void {
+    if (!this.isDragging) return;
+    
+    this.currentX = event.touches[0].clientX;
+    this.dragOffset = this.currentX - this.startX;
+  }
+
+  onTouchEnd(): void {
+    if (!this.isDragging) return;
+    
+    this.isDragging = false;
+    
+    // Threshold for triggering scroll (50px)
+    if (Math.abs(this.dragOffset) > 50) {
+      if (this.dragOffset > 0 && this.canScrollLeft) {
+        // Swiped right, scroll left
+        this.scrollLeft();
+      } else if (this.dragOffset < 0 && this.canScrollRight) {
+        // Swiped left, scroll right
+        this.scrollRight();
+      }
+    }
+    
+    this.dragOffset = 0;
+  }
+
+  // Mouse drag events for desktop
+  onMouseDown(event: MouseEvent): void {
+    this.isDragging = true;
+    this.startX = event.clientX;
+    this.dragOffset = 0;
+    event.preventDefault();
+  }
+
+  onMouseMove(event: MouseEvent): void {
+    if (!this.isDragging) return;
+    
+    this.currentX = event.clientX;
+    this.dragOffset = this.currentX - this.startX;
+  }
+
+  onMouseUp(): void {
+    if (!this.isDragging) return;
+    
+    this.isDragging = false;
+    
+    // Threshold for triggering scroll (50px)
+    if (Math.abs(this.dragOffset) > 50) {
+      if (this.dragOffset > 0 && this.canScrollLeft) {
+        // Dragged right, scroll left
+        this.scrollLeft();
+      } else if (this.dragOffset < 0 && this.canScrollRight) {
+        // Dragged left, scroll right
+        this.scrollRight();
+      }
+    }
+    
+    this.dragOffset = 0;
+  }
+
+  onMouseLeave(): void {
+    if (this.isDragging) {
+      this.isDragging = false;
+      this.dragOffset = 0;
+    }
+  }
+
+  getScrollTransform(): string {
+    return `translateX(${this.scrollPosition + this.dragOffset}px)`;
   }
 }
