@@ -4,6 +4,99 @@ import { CATEGORIES } from './category-data';
 export const projectData: Project[] = [
   {
     id: 1,
+    slug: 'demo-rag-assistant',
+    title: 'Demo RAG Assistant',
+    category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
+    overview: `Demo RAG Assistant is a document Q&A platform showcasing enterprise-grade Retrieval-Augmented Generation (RAG) architecture. The system enables users to upload documents (PDF, TXT) and ask natural language questions with context-aware responses powered by OpenAI's GPT-3.5-turbo. Key technical achievements include implementing CPU-optimized FAISS vector search for cost-effective semantic retrieval, building a robust document processing pipeline with PyMuPDF, designing a comprehensive rate limiting system with multi-tier protection (IP-based hourly/daily limits + global monthly caps), and deploying a containerized microservices architecture across Render (backend) and Firebase (frontend).`,
+    goals: [
+      'Build production-ready RAG pipeline with semantic search and conversational memory.',
+      'Implement CPU-optimized vector storage using FAISS for cost-effective deployment.',
+      'Create comprehensive rate limiting system to prevent API abuse and manage costs.',
+      'Develop Docker containerization for consistent deployment across environments.',
+      'Showcase enterprise-level API design with FastAPI and modern React patterns.',
+    ],
+    images: [
+      'assets/DemoRagAssistant/home.png',
+    ],
+    phases: [
+      {
+        name: 'Phase 1: RAG Pipeline Architecture',
+        tasks: [
+          'System Design: Architect FastAPI backend with modular service layer (embedding, vector store, query pipeline).',
+          'Technology Selection: Evaluate vector databases (FAISS CPU vs GPU, Pinecone, Chroma) - chose FAISS CPU for cost optimization.',
+          'API Contract: Design RESTful endpoints with proper separation of concerns (upload, query, document management).',
+          'Error Handling: Implement comprehensive exception handling with user-friendly error messages and timeout protection.',
+        ],
+      },
+      {
+        name: 'Phase 2: Document Processing Pipeline',
+        tasks: [
+          'Multi-Format Support: Build document loader using PyMuPDF for PDFs and standard file I/O for text files.',
+          'Intelligent Chunking: Implement recursive text splitting with configurable chunk size (1000 chars) and overlap (200 chars).',
+          'Metadata Preservation: Track document sources and chunk positions for accurate citation in responses.',
+          'Validation Layer: Add file type validation, size limits, and content verification before processing.',
+        ],
+      },
+      {
+        name: 'Phase 3: Vector Store & Semantic Search',
+        tasks: [
+          'FAISS Integration: Implement CPU-optimized IndexFlatL2 for reliable exact nearest-neighbor search.',
+          'Persistence Strategy: Design pickle-based serialization for vector index with atomic write operations.',
+          'Embedding Pipeline: Integrate OpenAI text-embedding-3-small with batching and retry logic.',
+          'Search Optimization: Fine-tune top-k retrieval (k=3) and similarity scoring for optimal context relevance.',
+        ],
+      },
+      {
+        name: 'Phase 4: Frontend Development',
+        tasks: [
+          'React Architecture: Build component hierarchy with ChatInterface, FileUpload, and reusable UI primitives.',
+          'State Management: Implement session-based conversation tracking with message history and loading states.',
+          'Real-time UX: Create typing indicators, smooth scrolling, and optimistic UI updates for responsive feel.',
+          'Accessibility: Add ARIA labels, keyboard navigation, and screen reader support for inclusive design.',
+        ],
+      },
+      {
+        name: 'Phase 5: Rate Limiting & Cost Control',
+        tasks: [
+          'Multi-Tier Protection: Implement 10 queries/hour per IP, 30/day per IP, 500/month global, 2s cooldown between queries.',
+          'Upload Limits: Enforce 5 files per session to prevent storage abuse and manage processing costs.',
+          'Usage Tracking: Build IP-based tracking with automatic cleanup and persistent state management.',
+          'User Feedback: Add real-time usage indicators showing remaining queries and upload capacity.',
+        ],
+      },
+      {
+        name: 'Phase 6: Containerization & DevOps',
+        tasks: [
+          'Docker Setup: Create multi-stage Dockerfiles for backend (Python 3.11-slim) and frontend (Node 20-slim).',
+          'Docker Compose: Orchestrate local development environment with volume mounts and environment variables.',
+          'Build Optimization: Minimize image sizes, leverage layer caching, and implement security best practices.',
+          'Environment Management: Configure separate .env files for development, staging, and production deployments.',
+        ],
+      },
+      {
+        name: 'Phase 7: Production Deployment',
+        tasks: [
+          'Backend Deployment: Deploy FastAPI to Render Web Service with Docker runtime and persistent storage volumes.',
+          'Frontend Deployment: Configure Firebase Hosting with SPA routing, caching headers, and CDN optimization.',
+          'CORS Configuration: Implement dynamic CORS with environment-specific allowed origins for security.',
+          'Cold Start Optimization: Add user-facing notifications explaining free-tier wake times (30-60 seconds) for transparency.',
+        ],
+      },
+      {
+        name: 'Phase 8: Mobile UX & Polish',
+        tasks: [
+          'Responsive Design: Implement mobile-first CSS with proper viewport handling (100dvh, -webkit-fill-available).',
+          'Progressive Enhancement: Use modern CSS features (dvh units) with graceful fallbacks for older browsers.',
+          'Performance Optimization: Lazy load components, implement code splitting, and optimize bundle size for mobile networks.',
+        ],
+      },
+    ],
+    conclusion: `Demo RAG Assistant demonstrates production-ready full-stack AI development with a focus on cost optimization, reliability, and user experience. The project showcases advanced skills in architecting scalable RAG pipelines, implementing CPU-optimized vector search for budget-conscious deployments, and building robust rate limiting systems to protect against abuse. Key architectural decisions include choosing FAISS CPU over GPU/cloud solutions for predictable costs, implementing comprehensive error handling with user-friendly timeout notifications, designing a modular service layer for easy testing and maintenance, and deploying a containerized microservices architecture across multiple platforms. The system handles real-world challenges including cold starts on free-tier hosting, mobile viewport quirks, and OpenAI API timeout management while maintaining a polished user experience. Technical highlights include FastAPI async endpoints, React hooks patterns, Docker multi-stage builds, and Firebase/Render deployment orchestration.`,
+    link: 'https://demoragassistant.web.app',
+    githubLink: 'https://github.com/JCoder9/DemoRagAssistant',
+  },
+  {
+    id: 2,
     slug: 'all-angles-news',
     title: 'All Angles News',
     category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
@@ -100,7 +193,7 @@ export const projectData: Project[] = [
     githubLink: '',
   },
   {
-    id: 2,
+    id: 3,
     slug: 'wandr-buddy',
     title: 'WandRBuddy',
     category: CATEGORIES.find((cat) => cat.name === 'Mobile Apps'),
@@ -202,7 +295,7 @@ export const projectData: Project[] = [
     githubLink: '',
   },
   {
-    id: 5,
+    id: 4,
     slug: 'zodi-angular-nx-ecommerce',
     title: 'Zodi - Angular NX E-Commerce Solution',
     category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
@@ -357,7 +450,7 @@ export const projectData: Project[] = [
     githubLink: '',
   },
   {
-    id: 3,
+    id: 6,
     slug: 'cyber-infiltrator',
     title: 'Cyber Infiltrator',
     category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
@@ -449,7 +542,7 @@ export const projectData: Project[] = [
     githubLink: '',
   },
   {
-    id: 4,
+    id: 7,
     slug: 'machine-learning-dynamic-narrative-gaming',
     title:
       'Application of Machine Learning for Personalised Dynamic Narrative Generation in Gaming',
@@ -523,7 +616,7 @@ export const projectData: Project[] = [
   },
   
   {
-    id: 6,
+    id: 8,
     slug: 'sprinkler-leak-detection-ml',
     title: 'Sprinkler System Leak Detection with Machine Learning',
     category: CATEGORIES.find((cat) => cat.name === 'Software & AI'),
@@ -592,7 +685,7 @@ export const projectData: Project[] = [
     githubLink: 'https://github.com/JCoder9/AiPipeLeakDetector',
   },
   {
-    id: 7,
+    id: 9,
     slug: '3d-binaural-audio-self-motion',
     title: '3D Binaural Audio Self-Motion Illusion',
     category: CATEGORIES.find((cat) => cat.name === 'Audio & Sound Design'),
@@ -646,7 +739,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 8,
+    id: 10,
     slug: 'digital-spacers-iphone-animation',
     title: 'Digital Spacers - iPhone Animation Project',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -704,7 +797,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 9,
+    id: 11,
     slug: 'allianz-gaa-championship-design',
     title: 'Allianz GAA Championship Design',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -729,7 +822,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 10,
+    id: 12,
     slug: 'fa-cup-2014-advertising',
     title: 'FA Cup 2014 Advertising Campaign',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -754,7 +847,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 11,
+    id: 13,
     slug: 'fa-sponsor-pack-2014',
     title: 'FA Sponsor Pack 2014',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -779,7 +872,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 12,
+    id: 14,
     slug: 'hotel-christmas-marketing',
     title: 'Hotel Christmas Marketing Campaign',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -804,7 +897,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 13,
+    id: 15,
     slug: 'friendlies-advertising-usa',
     title: 'Friendlies Advertising USA Campaign',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -829,7 +922,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 14,
+    id: 16,
     slug: 'schools-rugby-ad-pack-2015',
     title: 'Schools Rugby Ad Pack 2015',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -854,7 +947,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 15,
+    id: 17,
     slug: 'special-deals-september-2014',
     title: 'Special Deals September 2014 Campaign',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
@@ -879,7 +972,7 @@ export const projectData: Project[] = [
     link: '',
   },
   {
-    id: 16,
+    id: 18,
     slug: 'sky-vfx-before-after',
     title: 'Sky VFX Project - Before & After',
     category: CATEGORIES.find((cat) => cat.name === 'Visual & Digital Media'),
