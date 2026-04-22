@@ -301,6 +301,12 @@ section h2 {
   gap: 10px;
   transition: transform 0.3s ease;
   padding: 10px 0;
+  cursor: grab;
+  user-select: none;
+  
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .thumbnail {
@@ -693,6 +699,82 @@ section h2 {
 .popup-close:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.1);
+}
+
+.popup-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 3rem;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10002;
+  font-weight: 300;
+  padding: 0.5rem;
+
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.2);
+  }
+
+  &.popup-prev {
+    left: -60px;
+  }
+
+  &.popup-next {
+    right: -60px;
+  }
+}
+
+// Mobile styles for popup navigation
+@media (max-width: 768px) {
+  .popup-nav {
+    font-size: 2.5rem;
+
+    &.popup-prev {
+      left: -50px;
+    }
+
+    &.popup-next {
+      right: -50px;
+    }
+  }
+
+  .popup-close {
+    top: -45px;
+    right: -5px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-nav {
+    font-size: 2rem;
+
+    &.popup-prev {
+      left: 5px;
+    }
+
+    &.popup-next {
+      right: 5px;
+    }
+  }
+
+  .popup-close {
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+  }
 }
 
 .popup-image,

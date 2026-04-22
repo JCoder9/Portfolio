@@ -57,7 +57,17 @@
             <video *ngIf="isVideo(selectedImage)" [src]="selectedImage" controls class="featured-video" (click)="openPopup(selectedImage)"></video>
           </div>
           <div class="image-picker">
-            <div class="image-scroll" [style.transform]="'translateX(' + scrollPosition + 'px)'">
+            <div 
+              class="image-scroll" 
+              [style.transform]="getScrollTransform()"
+              (touchstart)="onTouchStart($event)"
+              (touchmove)="onTouchMove($event)"
+              (touchend)="onTouchEnd()"
+              (mousedown)="onMouseDown($event)"
+              (mousemove)="onMouseMove($event)"
+              (mouseup)="onMouseUp()"
+              (mouseleave)="onMouseLeave()"
+            >
               <div 
                 *ngFor="let image of project.images; let i = index" 
                 class="thumbnail"
@@ -117,8 +127,18 @@
 <div class="popup-overlay" *ngIf="showPopup" (click)="onPopupBackdropClick($event)">
   <div class="popup-content">
     <button class="popup-close" (click)="closePopup()">&times;</button>
+    <button 
+      class="popup-nav popup-prev" 
+      (click)="prevImage()" 
+      *ngIf="project && project.images && project.images.length > 1"
+    >‹</button>
     <img *ngIf="!isVideo(popupImage)" [src]="popupImage" [alt]="project?.title" class="popup-image" />
     <video *ngIf="isVideo(popupImage)" [src]="popupImage" controls class="popup-video" autoplay></video>
+    <button 
+      class="popup-nav popup-next" 
+      (click)="nextImage()" 
+      *ngIf="project && project.images && project.images.length > 1"
+    >›</button>
   </div>
 </div>
 
